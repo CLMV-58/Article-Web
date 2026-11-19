@@ -26,7 +26,7 @@
 
         <li>
             <a class="nav-link active rounded"
-               href="{{ route('portal.dashboard') }}">
+               href="{{ route('backoffice.dashboard') }}">
                 🏠 <span class="label">Dashboard</span>
             </a>
         </li>
@@ -51,14 +51,14 @@
 
         <li>
             <a class="nav-link rounded"
-               href="{{ route('portal.account-management.index') }}">
+               href="{{ route('backoffice.account-management.index') }}">
                 👥 <span class="label">CSM index</span>
             </a>
         </li>
 
         <li>
             <a class="nav-link rounded"
-               href="{{ route('portal.logout') }}">
+               href="{{ route('backoffice.logout') }}">
                 🚪 <span class="label">Logout</span>
             </a>
         </li>

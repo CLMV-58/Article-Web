@@ -26,8 +26,8 @@
                                     <td>{{ $record->last_name }}</td>
                                     <td>{{ $record->username }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="" class="btn btn-sm btn-info">View</a>
+                                        <a href="{{ route('backoffice.account-management.edit', $record->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="{{ route('backoffice.account-management.show', $record->id) }}" class="btn btn-sm btn-info">View</a>
                                     </td>
                                 </tr>
                             @empty

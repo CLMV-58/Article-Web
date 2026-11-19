@@ -120,7 +120,7 @@
                 <div class="text-center mb-4">
                     <small>
                         Don't have an account?
-                        <a href="{{ route('portal.auth.register') }}">
+                        <a href="{{ route('backoffice.auth.register') }}">
                             Create one
                         </a>
                     </small>

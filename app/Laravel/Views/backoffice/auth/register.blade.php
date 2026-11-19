@@ -121,7 +121,7 @@
                 <div class="text-center mb-3">
                     <small>
                         Already have an account?
-                        <a href="{{ route('portal.auth.login') }}">Sign in</a>
+                        <a href="{{ route('backoffice.auth.login') }}">Sign in</a>
                     </small>
                 </div>
 
