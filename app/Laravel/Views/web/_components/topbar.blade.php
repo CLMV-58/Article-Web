@@ -43,7 +43,7 @@
         </ul>
         <div class="d-flex">
             <!-- insert into href once user portal is done: route('portal.auth.register' -->
-            <button class="btn btn-outline-primary" href="{{ route('portal.auth.register') }}">Sign Up</button>
+            <button class="btn btn-outline-primary" href="#">Sign Up</button>
         </div>
     </div>
   </div>
