@@ -16,7 +16,7 @@ class AuthenticationController extends Controller{
 
     }
 
-    public function login(PageRequest $request){
+    public function login(PageaRequest $request){
         $this->data['page_title'] = "Login Page";
         return view('backoffice.auth.login', $this->data);
     }
