@@ -1,41 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome – Laravel 12 App</title>
-    <!-- Bootstrap CSS via CDN (you can bundle locally if preferred) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light min-vh-100 d-flex flex-column">
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="#">Laravel 12</a>
-        <span class="navbar-text text-muted">
-                A Modern PHP Framework
-            </span>
-    </div>
-</nav>
-<main class="flex-fill d-flex align-items-center justify-content-center">
+@extends('web._layouts.main')
+
+@section('content')
+<main class="flex-fill">
     <div class="container text-center py-5">
-        <h1 class="display-4 fw-bold mb-3 text-dark">Welcome to Your Laravel 12 Application</h1>
-        <p class="lead text-secondary mb-4">
-            You're running Laravel 12 with a custom structure and modern tooling.
-        </p>
-        <div class="d-flex justify-content-center gap-2">
-            <a href="https://laravel.com/docs/12.x" target="_blank" class="btn btn-primary btn-lg">
-                Documentation
-            </a>
-            <a href="{{ url('/health') }}" class="btn btn-outline-secondary btn-lg">
-                Health Check
-            </a>
+        <div class="row align-items-center py-5 mb-5">
+            <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-3 text-dark">Welcome to folio!</h1>
+                <p class="lead text-secondary mb-3">
+                Your space to create, organize, and publish your ideas.
+                </p>
+                <a href="{{ route('web.listing') }}" class="btn btn-primary btn-lg">
+                    View Articles Now
+                </a>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+                <img src="{{ 'assets/images/logo.png' }}" 
+                class="img-fluid rounded-5 w-75" 
+                style="max-width: 900px;"
+                alt="folio Logo">
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-dark">
+                    Everything You Need to Share Your Ideas
+                </h2>
+                <p class="text-secondary">
+                    Create, organize, and share your thoughts with Folio.
+                </p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 text-center border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 h-100 bg-body-tertiary border rounded-4 shadow-sm overflow-hidden">
+                            <h4 class="card-title fw-bold mb-3">
+                                Create
+                            </h4>
+                            <p class="card-text text-secondary">
+                                Write your thoughts, express your ideas, and turn them into meaningful articles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 h-100 bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
+                            <h4 class="card-title fw-bold mb-3">
+                                Organize
+                            </h4>
+                            <p class="card-text text-secondary">
+                                Keep your articles organized and manage your written content in one place.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center border-0 rounded-4 shadow-sm">
+                        <div class="card-body p-4 h-100 bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
+                            <h4 class="card-title fw-bold mb-3">
+                                Publish
+                            </h4>
+                            <p class="card-text text-secondary">
+                                Share your articles and make your ideas accessible to other readers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
 <footer class="text-center text-muted py-3 mt-auto">
-    &copy; {{ date('Y') }} Laravel 12 Starter. Built with ❤️.
+    &copy; {{ date('Y') }} Folio. All rights reserved.
 </footer>
-<!-- Bootstrap JS via CDN (optional, for dynamic components) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
+
+@section('page-styles')
+<style>
+    img {
+        height: 320px;
+        width: 320px;
+    } 
+</style>
+@endsection
