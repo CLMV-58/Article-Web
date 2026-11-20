@@ -19,7 +19,6 @@ class AccountManagementController extends Controller{
     public function index(PageRequest $request){
 
         $this->data['records'] = Admin::get();
-
         return view('backoffice.account-management.index', $this->data);
     }
 
@@ -36,25 +35,6 @@ class AccountManagementController extends Controller{
         $this->data['record'] = Admin::find($id);
         return view('backoffice.account-management.edit', $this->data);
     }
-
-    // public function authenticate(PageRequest $request){
-    //     $credentials = $request->only('email','password');
-
-    //     if (!auth('admin')->attempt($credentials)) {
-    //         session()->flash('notification-status',"failed");
-    //         session()->flash('notification-msg',"Invalid credentials. Please try again.");
-    //         return redirect()->back();
-    //     } else {
-    //         session()->flash('notification-status',"success");
-    //         session()->flash('notification-msg',"Successfully logged in. Welcome back!");
-    //         return redirect()->route('backoffice.dashboard');
-    //     }
-    // }
-
-    // public function register(PageRequest $request){
-    //     $this->data['page_title'] = "Registration Page";
-    //     return view('backoffice.auth.register', $this->data);
-    // }
 
     public function store(AdminAccountRequest $request){
         DB::beginTransaction();
@@ -106,11 +86,14 @@ class AccountManagementController extends Controller{
         }
     }
 
-    // public function logout(PageRequest $request){;
-    //     auth('admin')->logout();
-    //     session()->flash('notification-status', "success");
-    //     session()->flash('notification-msg', "Logged out successfully. Session closed.");
-    //     return redirect()->route('backoffice.auth.login');
-    // }
+    public function delete(PageRequest $request, $id = null)
+    {
+        $user = Admin::findOrFail($id);
+        $user->delete();
+
+        session()->flash('notification-status', "success");
+        session()->flash('notification-msg', "User account successfully deleted.");
+        return redirect()->route('backoffice.account-management.index');
+    }
 
 }

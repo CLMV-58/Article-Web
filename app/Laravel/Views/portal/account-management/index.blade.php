@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('portal.account-management.create') }}" class="btn btn-primary float-end">+ Create</a>
+                    <a href="#" class="btn btn-primary float-end">+ Create</a>
                 </div>
                 <div class="card-body">
                     <table class="table">

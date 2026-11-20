@@ -1,12 +1,12 @@
 @extends('backoffice._layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container px-3 px-md-4 pt-0 pb-4">
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Account Details</h5>
+                    <h1 class="h4 fw-bold mb-1">Account Details</h1>
                 </div>
                 <div class="card-body">
                     <label for="">Email:</label>

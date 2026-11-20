@@ -1,125 +1,136 @@
 @extends('backoffice._layouts.main')
 
 @section('content')
-<form action="" method="POST" class="container text-start">
-    @csrf
+<div class="container text-start px-3 px-md-4 pt-0 pb-4">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        @csrf
 
-    <h5 class="fw-bold mb-3 text-center">
-        Create Your Account
-    </h5>
+                        <h5 class="fw-bold mb-3 text-center">
+                            Edit Account
+                        </h5>
 
-    <div class="mb-3">
-        <label for="email" class="form-label fw-semibold mb-2">
-            Email Address
-        </label>
-        <input type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="Enter Email Address"
-            value="{{ old('email', $record->email) }}">
-            @if ($errors->first('email'))
-                <div class="text-left">
-                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold mb-2">
+                                Email Address
+                            </label>
+                            <input type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Enter Email Address"
+                                value="{{ old('email', $record->email) }}">
+                                @if ($errors->first('email'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('email') }}</small>
+                                    </div>
+                                @endif
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-6">
+                                <label
+                                for="first_name"
+                                class="form-label fw-semibold mb-2">
+                                    First Name
+                                </label>
+
+                                <input
+                                type="first_name"
+                                name="first_name"
+                                id="first_name"
+                                class="form-control"
+                                placeholder="Enter First Name"
+                                value="{{ old('first_name', $record->first_name) }}">
+                                @if ($errors->first('first_name'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('first_name') }}</small>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label
+                                for="last_name"
+                                class="form-label fw-semibold mb-2">
+                                    Last Name
+                                </label>
+
+                                <input
+                                type="last_name"
+                                name="last_name"
+                                id="last_name"
+                                class="form-control"
+                                placeholder="Enter Last Name"
+                                value="{{ old('last_name', $record->last_name) }}">
+                                @if ($errors->first('last_name'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('last_name') }}</small>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold mb-2">
+                                Username
+                            </label>
+                            <input type="text"
+                                class="form-control"
+                                id="username"
+                                name="username"
+                                placeholder="Enter Username"
+                                value="{{ old('username', $record->username) }}">
+                                @if ($errors->first('username'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('username') }}</small>
+                                    </div>
+                                @endif
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="password" class="form-label fw-semibold mb-2">
+                                Password
+                            </label>
+                            <input type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Enter Password">
+                                @if ($errors->first('password'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('password') }}</small>
+                                    </div>
+                                @endif
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                    type="checkbox"
+                                    id="showPassword"
+                                    onclick="togglePassword()">
+                                <label class="form-check-label" for="showPassword">
+                                    Show Password
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="submit-btn btn btn-primary">
+                                Update Account
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            @endif
-    </div>
-
-    <div class="mb-3 d-flex gap-4">
-        <div>
-            <label
-            for="first_name"
-            class="form-label fw-semibold mb-2">
-                First Name
-            </label>
-
-            <input
-            type="first_name"
-            name="first_name"
-            id="first_name"
-            class="form-control"
-            placeholder="Enter First Name"
-            value="{{ old('first_name', $record->first_name) }}">
-            @if ($errors->first('first_name'))
-                <div class="text-left">
-                    <small class="text-danger">{{ $errors->first('first_name') }}</small>
-                </div>
-            @endif
+            </div>
         </div>
-        <div>
-            <label
-            for="last_name"
-            class="form-label fw-semibold mb-2">
-                Last Name
-            </label>
-
-            <input
-            type="last_name"
-            name="last_name"
-            id="last_name"
-            class="form-control"
-            placeholder="Enter Last Name"
-            value="{{ old('last_name', $record->last_name) }}">
-            @if ($errors->first('last_name'))
-                <div class="text-left">
-                    <small class="text-danger">{{ $errors->first('last_name') }}</small>
-                </div>
-            @endif
-        </div>
     </div>
+</div>
 
-
-    <div class="mb-3">
-        <label for="username" class="form-label fw-semibold mb-2">
-            Username
-        </label>
-        <input type="text"
-            class="form-control"
-            id="username"
-            name="username"
-            placeholder="Enter Username"
-            value="{{ old('username', $record->username) }}">
-            @if ($errors->first('username'))
-                <div class="text-left">
-                    <small class="text-danger">{{ $errors->first('username') }}</small>
-                </div>
-            @endif
-    </div>
-
-    <div class="mb-2">
-        <label for="password" class="form-label fw-semibold mb-2">
-            Password
-        </label>
-        <input type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            placeholder="Enter Password">
-            @if ($errors->first('password'))
-                <div class="text-left">
-                    <small class="text-danger">{{ $errors->first('password') }}</small>
-                </div>
-            @endif
-    </div>
-
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="form-check">
-            <input class="form-check-input"
-                type="checkbox"
-                id="showPassword"
-                onclick="togglePassword()">
-            <label class="form-check-label" for="showPassword">
-                Show Password
-            </label>
-        </div>
-    </div>
-
-    <div class="d-grid mb-3">
-        <button type="submit" class="submit-btn btn btn-primary">
-            Update Account
-        </button>
-    </div>
-</form>
 @endsection
 
 @section('page-styles')

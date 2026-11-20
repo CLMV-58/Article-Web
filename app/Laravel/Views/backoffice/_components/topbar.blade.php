@@ -11,9 +11,17 @@
                  alt="Folio logo">
 
     <div class="ms-auto d-flex align-items-center gap-3">
-        <span class="text-light">
-            Folio Admin Panel
+        <span class="text-light ms-2 d-none d-sm-inline">
+            Folio Admin Portal
         </span>
+    </div>
+
+    <div class="ms-auto d-flex align-items-center gap-3">
+        @auth('admin')
+            <span class="text-light text-nowrap">
+                {{ auth('admin')->user()->username }}
+            </span>
+        @endauth
     </div>
   </div>
 </nav>

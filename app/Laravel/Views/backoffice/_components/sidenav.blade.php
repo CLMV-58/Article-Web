@@ -51,8 +51,22 @@
 
         <li>
             <a class="nav-link rounded"
+               href="{{ route('backoffice.profile.index') }}">
+                👥 <span class="label">Profile</span>
+            </a>
+        </li>
+
+        <li>
+            <a class="nav-link rounded"
                href="{{ route('backoffice.account-management.index') }}">
-                👥 <span class="label">CSM index</span>
+                👥 <span class="label">Admin accounts</span>
+            </a>
+        </li>
+
+        <li>
+            <a class="nav-link rounded"
+               href="{{ route('backoffice.user-management.index') }}">
+                👥 <span class="label">User Accounts</span>
             </a>
         </li>
 

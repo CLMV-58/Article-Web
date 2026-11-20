@@ -11,7 +11,8 @@ class MainController extends Controller{
     }
 
     public function index(PageRequest $request){
-        echo 1;
+        $this->data['page_title'] = "Dashboard";
+        return view('portal.dashboard', $this->data);
     }
 
 }

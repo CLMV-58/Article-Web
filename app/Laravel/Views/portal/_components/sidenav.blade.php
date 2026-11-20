@@ -1,27 +1,4 @@
 <nav class="sidebar bg-primary">
-    <!-- Sidebar Header -->
-    <!-- <div class="sidebar-header d-flex align-items-center justify-content-between px-3 py-3">
-
-        <div class="sidebar-brand d-flex align-items-center gap-2">
-            <img src="{{ asset('assets/images/logo2.png') }}"
-                 class="sidebar-logo"
-                 alt="Folio logo">
-
-            <span class="label fs-4 fw-bold text-white">
-                Folio
-            </span>
-        </div>
-
-        <button type="button"
-                class="btn btn-sm text-white sidebar-toggle"
-                onclick="toggleSidebar()"
-                aria-label="Toggle sidebar">
-            ☰
-        </button>
-
-    </div> -->
-
-    <!-- Navigation Links -->
     <ul class="nav flex-column gap-1 px-2 py-3">
 
         <li>
@@ -52,7 +29,7 @@
         <li>
             <a class="nav-link rounded"
                href="{{ route('portal.account-management.index') }}">
-                👥 <span class="label">CSM index</span>
+                👥 <span class="label">Profile</span>
             </a>
         </li>
 

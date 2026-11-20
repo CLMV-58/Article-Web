@@ -129,44 +129,6 @@
 
 @section('page-styles')
 <style>
-    .login-banner {
-        flex: 0 0 64%;
-        min-height: 100vh;
-        background: url('{{ asset('assets/images/loginbg.png') }}');
-        background-size: cover;
-        background-position: center;
-    }
-    .login-panel {
-        flex: 1;
-        min-width: 0;
-        min-height: 100vh;
-        background-color: #e0d9d3;
-    }
-    .login-content {
-        max-width: 355px;
-    }
-    .login-logo {
-        width: 133px;
-        height: 133px;
-        object-fit: contain;
-    }
-    .login-panel .form-label {
-        margin-bottom: 5px;
-    }
-    .login-panel a:hover {
-        text-decoration: underline;
-    }
-    .login-panel .form-control {
-        padding: 9px 14px;
-        border: none;
-    }
-    .login-panel a {
-        color: #82776c;
-        text-decoration: none;
-    }
-    .login-panel a:hover {
-        text-decoration: underline;
-    }
     .active {
         font-weight: 700;
         color: #312920 !important;

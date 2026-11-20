@@ -16,6 +16,9 @@
         --sidebar-width: 240px;
         --sidebar-collapsed-width: 72px;
     }
+    body {
+        background-color: #E0D9D3 !important;
+    }
     .bg-body-secondary {
         background-color: #918574 !important;
     }
@@ -24,6 +27,9 @@
     }
     .btn-primary {
         background-color: #524639 !important;
+    }
+    .btn-secondary {
+        background-color: #918574 !important;
     }
     .btn-outline-primary {
         --bs-btn-color: #312920;

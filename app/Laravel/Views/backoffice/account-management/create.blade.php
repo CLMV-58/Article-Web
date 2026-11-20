@@ -1,7 +1,7 @@
 @extends('backoffice._layouts.main')
 
 @section('content')
-<form action="" method="POST" class="container text-start">
+<form action="" method="POST" class="container text-start px-3 px-md-4 pt-0 pb-4">
     @csrf
 
     <h5 class="fw-bold mb-3 text-center">

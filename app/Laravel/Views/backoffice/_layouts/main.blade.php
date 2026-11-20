@@ -8,9 +8,9 @@
 <body>
     @include('backoffice._components.topbar')
     @include('backoffice._components.sidenav')
-    @include('backoffice._components.notifications')
     
     <div class="main">
+        @include('backoffice._components.notifications')
         @yield('content')
     </div>
 

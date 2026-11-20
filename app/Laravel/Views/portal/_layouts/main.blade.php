@@ -8,9 +8,9 @@
 <body>
     @include('portal._components.topbar')
     @include('portal._components.sidenav')
-    @include('portal._components.notifications')
     
     <div class="main">
+        @include('portal._components.notifications')
         @yield('content')
     </div>
 

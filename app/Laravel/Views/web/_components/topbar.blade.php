@@ -1,8 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-secondary">
+<nav class="navbar navbar-expand-lg bg-body-secondary shadow-sm admin-topbar">
   <div class="container-fluid position-relative">
     <a class="navbar-brand"><img src="{{ asset('assets/images/logo.png') }}" class="logo-topbar" alt="" srcset=""></a>
     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"                    
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -41,9 +47,15 @@
                 </a>
             </li>
         </ul>
-        <div class="d-flex">
-            <!-- insert into href once user portal is done: route('portal.auth.register' -->
-            <button class="btn btn-outline-primary" href="#">Sign Up</button>
+        <div class="ms-auto d-flex align-items-center gap-3">
+
+            <a href="{{ route('portal.auth.register') }}" class="btn btn-outline-primary">Sign Up</a>
+
+            @auth('user')
+            <span class="text-light text-nowrap">
+                {{ auth('user')->user()->username }}
+            </span>
+            @endauth
         </div>
     </div>
   </div>
