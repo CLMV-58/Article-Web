@@ -18,7 +18,7 @@
                             <label for="email" class="form-label fw-semibold mb-2">
                                 Email Address
                             </label>
-                            <input type="email"
+                            <input
                                 class="form-control"
                                 id="email"
                                 name="email"
@@ -108,6 +108,22 @@
                                 @endif
                         </div>
 
+                        <div class="mb-2">
+                            <label for="password_confirmation" class="form-label fw-semibold mb-2">
+                                Confirm Password
+                            </label>
+                            <input type="password"
+                                class="form-control"
+                                id="password_confirmation"
+                                name="password_confirmation"
+                                placeholder="Retype Password">
+                                @if ($errors->first('password'))
+                                    <div class="text-left">
+                                        <small class="text-danger">{{ $errors->first('password') }}</small>
+                                    </div>
+                                @endif
+                        </div>
+
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="form-check">
                                 <input class="form-check-input"
@@ -120,7 +136,7 @@
                             </div>
                         </div>
 
-                        <div class="d-grid mb-3">
+                        <div class="d-grid mb-1">
                             <button type="submit" class="submit-btn btn btn-primary">
                                 Update Account
                             </button>
@@ -259,6 +275,13 @@
             x.type = "text";
         } else {
             x.type = "password";
+        }
+
+        var y = document.getElementById("password_confirmation");
+        if (y.type === "password") {
+            y.type = "text";
+        } else {
+            y.type = "password";
         }
     }
 </script>

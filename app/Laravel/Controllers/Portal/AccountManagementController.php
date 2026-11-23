@@ -37,25 +37,6 @@ class AccountManagementController extends Controller{
         return view('portal.account-management.edit', $this->data);
     }
 
-    // public function authenticate(PageRequest $request){
-    //     $credentials = $request->only('email','password');
-
-    //     if (!auth('admin')->attempt($credentials)) {
-    //         session()->flash('notification-status',"failed");
-    //         session()->flash('notification-msg',"Invalid credentials. Please try again.");
-    //         return redirect()->back();
-    //     } else {
-    //         session()->flash('notification-status',"success");
-    //         session()->flash('notification-msg',"Successfully logged in. Welcome back!");
-    //         return redirect()->route('portal.dashboard');
-    //     }
-    // }
-
-    // public function register(PageRequest $request){
-    //     $this->data['page_title'] = "Registration Page";
-    //     return view('portal.auth.register', $this->data);
-    // }
-
     public function store(AdminAccountRequest $request){
         DB::beginTransaction();
 
@@ -81,7 +62,7 @@ class AccountManagementController extends Controller{
         }
     }
 
-    public function update(PageRequest $request, $id = null){
+    public function update(AdminAccountRequest $request, $id = null){
         DB::beginTransaction();
 
         try {
@@ -105,12 +86,4 @@ class AccountManagementController extends Controller{
             return redirect()->back();
         }
     }
-
-    // public function logout(PageRequest $request){;
-    //     auth('admin')->logout();
-    //     session()->flash('notification-status', "success");
-    //     session()->flash('notification-msg', "Logged out successfully. Session closed.");
-    //     return redirect()->route('portal.auth.login');
-    // }
-
 }

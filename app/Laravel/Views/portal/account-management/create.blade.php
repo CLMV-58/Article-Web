@@ -162,7 +162,6 @@
         --bs-btn-hover-border-color: #312920;
         --bs-btn-hover-color: #ffffff;
     }
-
     @media (max-width: 991.98px) {
         .login-banner {
             flex: none;
@@ -214,6 +213,13 @@
             x.type = "text";
         } else {
             x.type = "password";
+        }
+
+        var y = document.getElementById("password_confirmation");
+        if (y.type === "password") {
+            y.type = "text";
+        } else {
+            y.type = "password";
         }
     }
 </script>

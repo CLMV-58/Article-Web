@@ -8,7 +8,7 @@
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between">
                     <h1 class="h4 fw-bold mb-1">Your Profile</h1>
-                    <a href="{{ route('backoffice.profile.edit') }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('backoffice.profile.edit') }}" class="btn btn-sm btn-primary">Edit</a>
                 </div>
                 <div class="card-body">
                     <label for="">Email:</label>

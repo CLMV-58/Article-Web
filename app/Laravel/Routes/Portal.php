@@ -13,10 +13,17 @@ Route::group([
     include_once app_path('Laravel/Routes/Portal/Auth.php');
 
     Route::group(['middleware' => "portal.auth"], function () {
-        Route::get('/', ['as' => 'dashboard', 'uses' => 'MainController@index']);
+        Route::get('/', ['as' => 'profile', 'uses' => 'MainController@index']);
         Route::get('logout', ['as' => 'logout', 'uses' => "AuthenticationController@logout"]);
 
-        include_once app_path('Laravel/Routes/Portal/AccountManagement.php');
+        include_once app_path('Laravel/Routes/Portal/ProfileManagement.php');
     });
-    
+
+    Route::group(['as' => 'cms.', 'prefix' => 'cms'], function() {
+        Route::get('home', ['as' => 'home', 'uses' => 'MainController@home']);
+        Route::get('article', ['as' => 'article', 'uses' => 'MainController@article']);
+        Route::get('about', ['as' => 'about', 'uses' => 'MainController@about']);
+        Route::get('contact', ['as' => 'contact', 'uses' => 'MainController@contact']);
+    });
+
 });

@@ -112,11 +112,6 @@
 
         <section class="login-panel d-flex justify-content-center align-items-center">
             <div class="login-content w-100">
-                <!-- <div class="text-center mb-4">
-                    <img src="{{ asset('assets/images/logo.png') }}"
-                        alt="Folio Logo"
-                        class="login-logo rounded-4">
-                </div> -->
 
                 <div class="text-center mb-3">
                     <small>
@@ -148,7 +143,6 @@
                             @endif
                     </div>
 
-                    <!-- testing first and last name -->
                     <div class="mb-2 d-flex gap-4">
                         <div>
                             <label
@@ -309,6 +303,13 @@
                 x.type = "text";
             } else {
                 x.type = "password";
+            }
+
+            var y = document.getElementById("password_confirmation");
+            if (y.type === "password") {
+                y.type = "text";
+            } else {
+                y.type = "password";
             }
         }
     </script>

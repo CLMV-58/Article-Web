@@ -8,6 +8,8 @@ use App\Laravel\Models\Admin;
 
 use App\Laravel\Requests\Backoffice\AdminAccountRequest;
 
+use App\Laravel\Requests\Backoffice\EditAdminAccountRequest;
+
 use DB; // use Illuminate\support\facades\DB;
 
 class AccountManagementController extends Controller{
@@ -61,7 +63,7 @@ class AccountManagementController extends Controller{
         }
     }
 
-    public function update(PageRequest $request, $id = null){
+    public function update(EditAdminAccountRequest $request, $id = null){
         DB::beginTransaction();
 
         try {

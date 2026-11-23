@@ -61,9 +61,6 @@
         --bs-tertiary-rgb: 224, 217, 211;
         --bs-body-color: #171614;
     }
-    /* body {
-        background-color: #ebe4df;
-    } */
     .bg-body-secondary {
         background-color: #918574 !important;
     }

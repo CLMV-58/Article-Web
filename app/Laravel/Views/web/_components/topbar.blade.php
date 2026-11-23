@@ -49,12 +49,13 @@
         </ul>
         <div class="ms-auto d-flex align-items-center gap-3">
 
-            <a href="{{ route('portal.auth.register') }}" class="btn btn-outline-primary">Sign Up</a>
-
             @auth('user')
             <span class="text-light text-nowrap">
                 {{ auth('user')->user()->username }}
             </span>
+            <a href="{{ route('portal.profile.index') }}" class="btn btn-outline-primary">User Portal</a>
+            @else
+            <a href="{{ route('portal.auth.register') }}" class="btn btn-outline-primary">Sign Up</a>
             @endauth
         </div>
     </div>

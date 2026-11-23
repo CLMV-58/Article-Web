@@ -61,9 +61,6 @@
         --bs-tertiary-rgb: 224, 217, 211;
         --bs-body-color: #171614;
     }
-    /* body {
-        background-color: #ebe4df;
-    } */
     .bg-body-secondary {
         background-color: #918574 !important;
     }
@@ -80,7 +77,6 @@
         --bs-btn-hover-border-color: #312920;
         --bs-btn-hover-color: #ffffff;
     }
-
     @media (max-width: 991.98px) {
         .login-banner {
             flex: none;
@@ -112,11 +108,6 @@
 
         <section class="login-panel d-flex justify-content-center align-items-center">
             <div class="login-content w-100">
-                <!-- <div class="text-center mb-4">
-                    <img src="{{ asset('assets/images/logo.png') }}"
-                        alt="Folio Logo"
-                        class="login-logo rounded-4">
-                </div> -->
 
                 <div class="text-center mb-3">
                     <small>
@@ -148,7 +139,6 @@
                             @endif
                     </div>
 
-                    <!-- testing first and last name -->
                     <div class="mb-2 d-flex gap-4">
                         <div>
                             <label
@@ -309,6 +299,13 @@
                 x.type = "text";
             } else {
                 x.type = "password";
+            }
+            
+            var y = document.getElementById("password_confirmation");
+            if (y.type === "password") {
+                y.type = "text";
+            } else {
+                y.type = "password";
             }
         }
     </script>

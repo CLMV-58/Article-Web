@@ -8,6 +8,8 @@ use App\Laravel\Models\Admin;
 
 use App\Laravel\Requests\Backoffice\AdminAccountRequest;
 
+use App\Laravel\Requests\Backoffice\EditProfileRequest;
+
 use DB; // use Illuminate\support\facades\DB;
 
 class ProfileController extends Controller
@@ -29,7 +31,7 @@ class ProfileController extends Controller
         return view('backoffice.profile.edit', $this->data);
     }
 
-    public function update(PageRequest $request){
+    public function update(EditProfileRequest $request){
         DB::beginTransaction();
 
         try {

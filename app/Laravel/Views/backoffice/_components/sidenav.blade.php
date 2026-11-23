@@ -1,82 +1,59 @@
 <nav class="sidebar bg-primary">
-    <!-- Sidebar Header -->
-    <!-- <div class="sidebar-header d-flex align-items-center justify-content-between px-3 py-3">
-
-        <div class="sidebar-brand d-flex align-items-center gap-2">
-            <img src="{{ asset('assets/images/logo2.png') }}"
-                 class="sidebar-logo"
-                 alt="Folio logo">
-
-            <span class="label fs-4 fw-bold text-white">
-                Folio
-            </span>
-        </div>
-
-        <button type="button"
-                class="btn btn-sm text-white sidebar-toggle"
-                onclick="toggleSidebar()"
-                aria-label="Toggle sidebar">
-            ☰
-        </button>
-
-    </div> -->
-
-    <!-- Navigation Links -->
-    <ul class="nav flex-column gap-1 px-2 py-3">
-
+    <ul class="nav flex-column gap-1 px-2 py-3 flex-grow-1">
         <li>
-            <a class="nav-link active rounded"
+            <a class="nav-link rounded {{ request()->routeIs('backoffice.dashboard') ? 'active' : '' }}"
                href="{{ route('backoffice.dashboard') }}">
-                🏠 <span class="label">Dashboard</span>
+                <img src="{{ asset('assets/images/SNavDash.png') }}" class="sidebar-icon">
+                <span class="label">
+                    Dashboard
+                </span>
             </a>
         </li>
 
         <li>
-            <a class="nav-link rounded" href="#">
-                📝 <span class="label">Home page</span>
-            </a>
-        </li>
-
-        <li>
-            <a class="nav-link rounded" href="#">
-                📝 <span class="label">About us</span>
-            </a>
-        </li>
-
-        <li>
-            <a class="nav-link rounded" href="#">
-                📝 <span class="label">Contact page</span>
-            </a>
-        </li>
-
-        <li>
-            <a class="nav-link rounded"
+            <a class="nav-link rounded {{ request()->routeIs('backoffice.profile.index') ? 'active' : '' }}"
                href="{{ route('backoffice.profile.index') }}">
-                👥 <span class="label">Profile</span>
+                <img src="{{ asset('assets/images/SNavP.png') }}" class="sidebar-icon">
+                <span class="label">
+                    Profile
+                </span>
             </a>
         </li>
 
+        <hr class="borber border-tertiary border-3">
+
         <li>
-            <a class="nav-link rounded"
+            <a class="nav-link rounded {{ request()->routeIs('backoffice.account-management.index') ? 'active' : '' }}"
                href="{{ route('backoffice.account-management.index') }}">
-                👥 <span class="label">Admin accounts</span>
+                <img src="{{ asset('assets/images/SNavAM.png') }}" class="sidebar-icon">
+                <span class="label">
+                    Admin accounts
+                </span>
             </a>
         </li>
 
         <li>
-            <a class="nav-link rounded"
+            <a class="nav-link rounded {{ request()->routeIs('backoffice.user-management.index') ? 'active' : '' }}"
                href="{{ route('backoffice.user-management.index') }}">
-                👥 <span class="label">User Accounts</span>
+                <img src="{{ asset('assets/images/SNavUM.png') }}" class="sidebar-icon">
+                <span class="label">
+                    User Accounts
+                </span>
             </a>
         </li>
 
+    </ul>
+
+    <ul class="nav flex-column px-2 py-3 nav-logout">
         <li>
             <a class="nav-link rounded"
-               href="{{ route('backoffice.logout') }}">
-                🚪 <span class="label">Logout</span>
+            href="{{ route('backoffice.logout') }}">
+                <img src="{{ asset('assets/images/SNavLO.png') }}" class="sidebar-icon">
+                <span class="label">
+                    Logout
+                </span>
             </a>
         </li>
-
     </ul>
 </nav>
 

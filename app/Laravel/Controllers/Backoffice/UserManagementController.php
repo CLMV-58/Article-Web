@@ -8,6 +8,8 @@ use App\Laravel\Models\User;
 
 use App\Laravel\Requests\Backoffice\AdminAccountRequest;
 
+use App\Laravel\Requests\Backoffice\EditUserAccountRequest;
+
 use DB; // use Illuminate\support\facades\DB;
 
 class UserManagementController extends Controller
@@ -59,7 +61,7 @@ class UserManagementController extends Controller
         }
     }
 
-    public function update(PageRequest $request, $id = null){
+    public function update(EditUserAccountRequest $request, $id = null){
         DB::beginTransaction();
 
         try {

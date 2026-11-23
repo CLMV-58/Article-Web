@@ -31,7 +31,7 @@ class AuthenticationController extends Controller{
         } else {
             session()->flash('notification-status',"success");
             session()->flash('notification-msg',"Successfully logged in. Welcome back!");
-            return redirect()->route('portal.dashboard');
+            return redirect()->route('portal.profile.index');
         }
     }
 
