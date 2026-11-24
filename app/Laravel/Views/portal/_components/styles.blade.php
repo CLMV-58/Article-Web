@@ -102,6 +102,11 @@
         padding-top: var(--topbar-height);
         transition: margin-left .25s;
     }
+    .cms_main {
+        margin-left: var(--sidebar-width);
+        padding-top: var(--topbar-height);
+        transition: margin-left .25s;
+    }
     .admin-topbar {
         position: fixed;
         top: 0;
