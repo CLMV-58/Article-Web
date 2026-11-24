@@ -6,7 +6,7 @@
     <div class="mb-4">
         <h1 class="h4 fw-bold mb-1">Dashboard</h1>
         <p class="text-body-secondary mb-0">
-            Welcome to the Folio user portal.
+            Welcome to the Folio admin portal.
         </p>
     </div>
 
