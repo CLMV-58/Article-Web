@@ -136,10 +136,11 @@
                             </div>
                         </div>
 
-                        <div class="d-grid mb-1">
+                        <div class="mb-1 d-flex justify-content-between">
                             <button type="submit" class="submit-btn btn btn-primary">
                                 Update Account
                             </button>
+                            <a href="{{ route('portal.profile.index') }}" class="btn">Cancel</a>
                         </div>
                     </form>
                 </div>

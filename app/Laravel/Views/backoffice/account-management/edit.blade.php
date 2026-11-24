@@ -91,7 +91,7 @@
                                 @endif
                         </div>
 
-                        <div class="mb-2">
+                        <!-- <div class="mb-2">
                             <label for="password" class="form-label fw-semibold mb-2">
                                 Password
                             </label>
@@ -133,12 +133,13 @@
                                     Show Password
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="d-grid mb-3">
+                        <div class="mb-1 d-flex justify-content-between">
                             <button type="submit" class="submit-btn btn btn-primary">
                                 Update Account
                             </button>
+                            <a href="{{ route('backoffice.account-management.index') }}" class="btn">Cancel</a>
                         </div>
                     </form>
                 </div>

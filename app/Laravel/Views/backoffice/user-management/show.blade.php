@@ -5,8 +5,9 @@
     <div class="row">
         <div class="col">
             <div class="card shadow-sm">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     <h5 class="card-title">Account Details</h5>
+                    <a href="{{ route('backoffice.user-management.index') }}" class="btn btn-sm">Back</a>
                 </div>
                 <div class="card-body">
                     <label for="">Email:</label>
