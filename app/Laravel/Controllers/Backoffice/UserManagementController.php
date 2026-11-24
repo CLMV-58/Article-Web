@@ -22,6 +22,8 @@ class UserManagementController extends Controller
     public function index(PageRequest $request)
     {
         $this->data['records'] = User::get();
+        $this->data['deleted_records'] = User::onlyTrashed()->get();
+
         return view('backoffice.user-management.index', $this->data);
     }
 
@@ -36,7 +38,8 @@ class UserManagementController extends Controller
         return view('backoffice.user-management.edit', $this->data);
     }
 
-    public function store(AdminAccountRequest $request){
+    public function store(AdminAccountRequest $request)
+    {
         DB::beginTransaction();
 
         try {
@@ -61,7 +64,8 @@ class UserManagementController extends Controller
         }
     }
 
-    public function update(EditUserAccountRequest $request, $id = null){
+    public function update(EditUserAccountRequest $request, $id = null)
+    {
         DB::beginTransaction();
 
         try {
@@ -95,4 +99,23 @@ class UserManagementController extends Controller
         session()->flash('notification-msg', "User account successfully deleted.");
         return redirect()->route('backoffice.user-management.index');
     }
+
+    public function restore($id)
+    {
+        $user = User::withTrashed()->findOrFail($id);
+
+        $user->restore();
+
+        session()->flash('notification-status', 'success');
+        session()->flash('notification-msg', 'User account successfully restored.');
+
+        return redirect()->route('backoffice.user-management.index');
+    }
+
+    // public function deleted(PageRequest $request)
+    // {
+    //     $this->data['deleted_records'] = User::onlyTrashed()->get();
+
+    //     return view('backoffice.user-management.deleted', $this->data);
+    // }
 }

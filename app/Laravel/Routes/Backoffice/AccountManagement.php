@@ -20,6 +20,8 @@ Route::group(['prefix' => 'user-management', 'as' => 'user-management.'], functi
 
     Route::get('/', ['as' => 'index', 'uses' => 'UserManagementController@index']);
 
+    Route::post('restore/{id}', ['as' => 'restore', 'uses' => 'UserManagementController@restore']);
+
     Route::get('edit/{id}', ['as' => 'edit', 'uses' => 'UserManagementController@edit']);
     Route::post('edit/{id}', ['uses' => 'UserManagementController@update']);
 
