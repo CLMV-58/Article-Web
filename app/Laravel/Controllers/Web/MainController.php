@@ -3,6 +3,7 @@
 namespace App\Laravel\Controllers\Web;
 
 use App\Laravel\Requests\PageRequest;
+use App\Laravel\Models\CMS\CMSAbout;
 
 class MainController extends Controller{
     public function __construct()
@@ -17,6 +18,7 @@ class MainController extends Controller{
 
     public function about(PageRequest $request){
         $this->data['page_title'] = "About Page";
+        $this->data['articles'] = CMSAbout::get();
         return view('web.about', $this->data);
     }
 
