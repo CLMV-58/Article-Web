@@ -35,7 +35,7 @@ class ArticleController extends Controller
         $per_page = $request->input('per_page',10);
         $auth = $request->user($this->guard);
 
-        $articles = Article::where("user_id", $auth->id)
+        $articles = Article::where("user_id") //$auth->id
             ->orderBy('updated_at',"DESC")
             ->paginate($per_page);
 
@@ -50,8 +50,17 @@ class ArticleController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function show(PageRequest $request){
-        $article = $request->get('article_data');
+    public function show(PageRequest $request, $id = null){
+        $article = Article::find($id);
+
+        if(!$article) {
+            $this->response['status'] = FALSE;
+            $this->response['status_code'] = "NOT_FOUND";
+            $this->response['msg'] = "Article not found.";
+            $this->response_code = 404;
+
+            goto callback;
+        }
 
         $this->response['status'] = TRUE;
         $this->response['status_code'] = "ARTICLE_DETAIL";
@@ -64,13 +73,13 @@ class ArticleController extends Controller
     }
 
     public function store(ArticleRequest $request){
-        $auth = $request->user($this->guard);
+        // $auth = $request->user($this->guard);
 
         DB::beginTransaction();
         try{
 
             $article = new Article;
-            $article->user_id = $auth->id;
+            // $article->user_id = $auth->id;
             $article->name = $request->input('name');
             $article->description = $request->input('description');
 
@@ -106,14 +115,15 @@ class ArticleController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function update(ArticleRequest $request){
-        $auth = $request->user($this->guard);
-        $article = $request->get('article_data');
+    public function update(ArticleRequest $request, $id = null){
+        // $auth = $request->user($this->guard);
+        $article = Article::find($id);
+        // $article = $request->get('article_data');
 
         DB::beginTransaction();
         try{
 
-            $article->user_id = $auth->id;
+            // $article->user_id = $auth->id;
             $article->name = $request->input('name');
             $article->description = $request->input('description');
 
@@ -129,6 +139,15 @@ class ArticleController extends Controller
             $article->save();
 
             DB::commit();
+
+            if(!$article) {
+                $this->response['status'] = FALSE;
+                $this->response['status_code'] = "NOT_FOUND";
+                $this->response['msg'] = "Article not found.";
+                $this->response_code = 404;
+
+                goto callback;
+            }
 
             $this->response['status'] = TRUE;
             $this->response['status_code'] = "ARTICLE_UPDATED";
@@ -150,8 +169,18 @@ class ArticleController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function destroy(PageRequest $request){
-        $article = $request->get('article_data');
+    public function destroy(PageRequest $request, $id = null){
+        $article = Article::find($id);
+        // $article = $request->get('article_data');
+
+        if(!$article) {
+            $this->response['status'] = FALSE;
+            $this->response['status_code'] = "NOT_FOUND";
+            $this->response['msg'] = "Article not found.";
+            $this->response_code = 404;
+
+            goto callback;
+        }
 
         DB::beginTransaction();
         try{
