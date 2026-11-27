@@ -43,8 +43,10 @@ class AuthenticationController extends Controller
         try{
 
             $user = new User();
+            $user->first_name = strtoupper($request->input('first_name'));
+            $user->last_name = strtoupper($request->input('last_name'));
+            $user->username = strtoupper($request->input('username'));
             $user->email = strtolower($request->input('email'));
-            $user->name = strtoupper($request->input('name'));
             $user->password = bcrypt($request->input('password'));
             $user->save();
 
@@ -66,7 +68,8 @@ class AuthenticationController extends Controller
         return response()->json($this->api_response($this->response), $this->response_code);
     }
 
-    public function login(PageRequest $request){
+    public function login(PageRequest $request)
+    {
         $password  = $request->input('password');
         $value =  strtolower($request->input('email'));
 
@@ -75,7 +78,7 @@ class AuthenticationController extends Controller
 
         $password  = $request->input('password');
 
-        if(!$token = auth($this->guard)->attempt([$field => $value,'password' => $password])){
+        if (!$token = auth($this->guard)->attempt([$field => $value, 'password' => $password])) {
             $this->response['status'] = FALSE;
             $this->response['status_code'] = "UNAUTHORIZED";
             $this->response['msg'] = "Invalid account credentials.";
@@ -90,7 +93,7 @@ class AuthenticationController extends Controller
         $this->response['msg'] = "Hi {$user->name}!";
         $this->response['token'] = $token;
         $this->response['token_type'] = "Bearer";
-        $this->response['data'] = $this->transformer->transform($user, new UserTransformer,'item');
+        $this->response['data'] = $this->transformer->transform($user, new UserTransformer, 'item');
 
         $this->response_code = 200;
         goto callback;
@@ -98,9 +101,9 @@ class AuthenticationController extends Controller
         $this->response['status'] = FALSE;
         $this->response['msg'] = "Invalid account credentials";
 
-        if($login_type == "phone"){
+        if ($login_type == "phone") {
             $this->response['status_code'] = "INVALID_PHONE_NUMBER";
-        }else{
+        } else {
             $this->response['status_code'] = "INVALID_EMAIL";
         }
         $this->response_code = 412;
@@ -108,6 +111,7 @@ class AuthenticationController extends Controller
         callback:
         return response()->json($this->api_response($this->response), $this->response_code);
     }
+ 
 
     public function check_login(PageRequest $request){
         $user = auth($this->guard)->user();

@@ -16,7 +16,9 @@ class RegisterRequest extends ApiRequestManager
 
         return [
             'email' => "required|email:rfc,strict,dns,filter|unique_email:0",
-            'name' => "required|between:2,100|regex:/^[A-Za-z0-9 \s]+$/",
+            'first_name' => "required|between:2,100|regex:/^[A-Za-z0-9 \s]+$/",
+            'last_name' => "required|between:2,100|regex:/^[A-Za-z0-9 \s]+$/",
+            'username' => "required|between:2,100|regex:/^[A-Za-z0-9 \s]+$/",
             'password' => [
                 'required',
                 'between:6,20',
