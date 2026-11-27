@@ -10,6 +10,7 @@
     @include('portal._components.sidenav')
     
     <div class="cms_main">
+        @include('portal._components.notifications')
         @yield('content')
     </div>
 

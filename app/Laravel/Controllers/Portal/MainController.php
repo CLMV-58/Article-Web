@@ -15,9 +15,9 @@ class MainController extends Controller{
         return view('portal.profile.index', $this->data);
     }
 
-    public function article(PageRequest $request){
+    public function articles(PageRequest $request){
         $this->data['page_title'] = "Articles";
-        return view('portal.cms.article', $this->data);
+        return view('portal.cms.articles', $this->data);
     }
 
     public function home(PageRequest $request){

@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use App\Laravel\Models\CMS\About;
+use App\Laravel\Models\CMS\Home;
+use App\Laravel\Models\CMS\Contact;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -80,4 +83,20 @@ class User extends Authenticatable implements JWTSubject
             'password' => 'hashed',
         ];
     }
+
+    public function homeContents()
+    {
+        return $this->hasMany(Home::class, 'user_id');
+    }
+
+    public function aboutContents()
+    {
+        return $this->hasMany(About::class, 'user_id');
+    }
+
+    public function contactContents()
+    {
+        return $this->hasMany(Contact::class, 'user_id');
+    }
+
 }

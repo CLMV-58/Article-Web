@@ -24,8 +24,8 @@
         </li>
 
         <li>
-            <a class="nav-link rounded {{ request()->routeIs('portal.cms.article') ? 'active' : '' }}"
-            href="{{ route('portal.cms.article') }}">
+            <a class="nav-link rounded {{ request()->routeIs('portal.cms.articles') ? 'active' : '' }}"
+            href="{{ route('portal.cms.articles') }}">
                 <img src="{{ asset('assets/images/SNavCMS.png') }}" class="sidebar-icon">
                 <span class="label">
                     Articles
