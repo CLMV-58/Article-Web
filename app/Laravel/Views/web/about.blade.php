@@ -7,153 +7,77 @@
             About Us
         </h1>
         
-        <!-- TESTING BELOW -->
-         @forelse ($articles as $article)
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5">
-                                <img src="{{ asset('assets/images/abt1.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Values">
-                            </div>   
-                            <div class="col-12 col-lg-7">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        {{ $article->title1 }}
-                                    </h2>
-                                    <span class="lead text-secondary lh-lg mb-0">
-                                        {!! $article->content1 !!}
-                                    </span>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-12 col-lg-5">
+                            <img src="{{ asset('assets/images/abt1.png') }}" 
+                            class="img-fluid w-100 h-100 about-image" 
+                            alt="Our Values">
+                        </div>   
+                        <div class="col-12 col-lg-7">
+                            <div class="card border-0 p-4 p-lg-5 h-100">
+                                <h2 class="display-6 fw-bold text-dark mb-4">
+                                    {{ strip_tags($contents->get('card1_header')?->content ?? 'Mission') }}
+                                </h2>
+                                <div class="lead text-secondary lh-lg mb-0">
+                                    {!! $contents->get('card1_body')?->content ?? 'Lorem ipsum dolor sit amet...' !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5 order-lg-2">
-                                <img src="{{ asset('assets/images/abt2.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Vision">
-                            </div>   
-                            <div class="col-12 col-lg-7 order-lg-1">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        {{ $article->title2 }}
-                                    </h2>
-                                    <span class="lead text-secondary lh-lg mb-0">
-                                        {!! $article->content2 !!}
-                                    </span>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-12 col-lg-5 order-lg-2">
+                            <img src="{{ asset('assets/images/abt2.png') }}" 
+                            class="img-fluid w-100 h-100 about-image" 
+                            alt="Our Vision">
+                        </div>   
+                        <div class="col-12 col-lg-7 order-lg-1">
+                            <div class="card border-0 p-4 p-lg-5 h-100">
+                                <h2 class="display-6 fw-bold text-dark mb-4">
+                                    {{ strip_tags($contents->get('card2_header')?->content ?? 'Vision') }}
+                                </h2>
+                                <div class="lead text-secondary lh-lg mb-0">
+                                    {!! $contents->get('card2_body')?->content ?? 'Lorem ipsum dolor sit amet...' !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5">
-                                <img src="{{ asset('assets/images/abt3.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Values">
-                            </div>   
-                            <div class="col-12 col-lg-7">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        {{ $article->title3 }}
-                                    </h2>
-                                    <span class="lead text-secondary lh-lg mb-0">
-                                        {!! $article->content3 !!}
-                                    </span>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-12 col-lg-5">
+                            <img src="{{ asset('assets/images/abt3.png') }}" 
+                            class="img-fluid w-100 h-100 about-image" 
+                            alt="Our Values">
+                        </div>   
+                        <div class="col-12 col-lg-7">
+                            <div class="card border-0 p-4 p-lg-5 h-100">
+                                <h2 class="display-6 fw-bold text-dark mb-4">
+                                    {{ strip_tags($contents->get('card3_header')?->content ?? 'Values') }}
+                                </h2>
+                                <div class="lead text-secondary lh-lg mb-0">
+                                    {!! $contents->get('card3_body')?->content ?? 'Lorem ipsum dolor sit amet...' !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        @empty
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5">
-                                <img src="{{ asset('assets/images/abt1.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Mission">
-                            </div>   
-                            <div class="col-12 col-lg-7">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        Mission
-                                    </h2>
-                                    <p class="lead text-secondary lh-lg mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5 order-lg-2">
-                                <img src="{{ asset('assets/images/abt2.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Vision">
-                            </div>   
-                            <div class="col-12 col-lg-7 order-lg-1">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        Vision
-                                    </h2>
-                                    <p class="lead text-secondary lh-lg mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card bg-body-tertiary border shadow-sm rounded-4 overflow-hidden">
-                        <div class="row g-0 align-items-stretch">
-                            <div class="col-12 col-lg-5">
-                                <img src="{{ asset('assets/images/abt3.png') }}" 
-                                class="img-fluid w-100 h-100 about-image" 
-                                alt="Our Values">
-                            </div>   
-                            <div class="col-12 col-lg-7">
-                                <div class="card border-0 p-4 p-lg-5 h-100">
-                                    <h2 class="display-6 fw-bold text-dark mb-4">
-                                        Values
-                                    </h2>
-                                    <p class="lead text-secondary lh-lg mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforelse
-
+        </div>
 
     </div>
 </main>
