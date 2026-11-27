@@ -13,30 +13,42 @@ return new class extends Migration
     {
         Schema::create('cms_home', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('section');
             $table->longText('content')->nullable();
+            $table->foreignId('user_id')
+                ->constrained('user')
+                ->cascadeOnDelete();
+            $table->unique(['user_id', 'section']);
             $table->timestamps();
         });
         Schema::create('cms_about', function (Blueprint $table) {
             $table->id();
-            $table->string('title1')->nullable();
-            $table->longText('content1')->nullable();
-            $table->string('title2')->nullable();
-            $table->longText('content2')->nullable();
-            $table->string('title3')->nullable();
-            $table->longText('content3')->nullable();
+            $table->string('section');
+            $table->longText('content')->nullable();
+            $table->foreignId('user_id')
+                ->constrained('user')
+                ->cascadeOnDelete();
+            $table->unique(['user_id', 'section']);
             $table->timestamps();
         });
         Schema::create('cms_contact', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('section');
             $table->longText('content')->nullable();
+            $table->foreignId('user_id')
+                ->constrained('user')
+                ->cascadeOnDelete();
+            $table->unique(['user_id', 'section']);
             $table->timestamps();
         });
-        Schema::create('cms_article', function (Blueprint $table) {
+        Schema::create('cms_articles', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('section');
             $table->longText('content')->nullable();
+            $table->foreignId('user_id')
+                ->constrained('user')
+                ->cascadeOnDelete();
+            $table->unique(['user_id', 'section']);
             $table->timestamps();
         });
     }
